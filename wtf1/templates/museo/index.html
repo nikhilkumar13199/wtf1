@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+	<style type="text/css">
+		body{
+			background-color: #e6e6fa;
+		}
+		.list-row{
+			background-color: #a0aaad;
+			
+		}
+	</style>
+</head>
+<body>
+	<h1>Movies list</h1>
+	<form action="{% url 'museo:index' %}" method="post">
+		<table>
+			<tr>
+				<td class="list-row">Movie id</td>
+				<td class="list-row">Movie</td>
+				<td class="list-row">Year</td>
+				<td class="list-row">IMDB</td>
+				<td class="list-row">Tomatometer</td>
+			</tr> 
+			{% for b in row %}
+			<tr class="list-row">
+				{% for x in b %}
+				<td>
+					{{ x }}
+				</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
+		{% csrf_token %}
+	</form>
+
+</body>
+</html>
